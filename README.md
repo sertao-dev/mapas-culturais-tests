@@ -7,6 +7,8 @@ Repositório para criação de testes automatizados para o https://mapasculturai
 
 ## Instalação
 
+Primeiro passo é fazer o clone do repositório
+
 ```shell
 git clone git@github.com:sertao-dev/mapas-culturais-tests.git
 ```
@@ -30,3 +32,7 @@ npm install
 ```shell
 npx cypress open
 ```
+
+## Contribuindo
+
+Envie suas modificações através de um Pull Request
