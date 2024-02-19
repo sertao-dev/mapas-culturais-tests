@@ -1,0 +1,22 @@
+{
+  "name": "mapas-culturais-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sertao-dev/mapas-culturais-tests.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sertao-dev/mapas-culturais-tests/issues"
+  },
+  "homepage": "https://github.com/sertao-dev/mapas-culturais-tests#readme",
+  "dependencies": {
+    "cypress": "^13.6.4"
+  }
+}
