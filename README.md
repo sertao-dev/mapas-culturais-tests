@@ -37,6 +37,13 @@ npx cypress open
 
 Envie suas modificações através de um Pull Request
 
+### Branches
+Utilize um nome para o branch de acordo com a implementação a ser feita, por exemplo: 
+* feature/create-new-page
+* adjust/change-color-button
+* fix/bug-login-page
+* test/create-login-tests
+
 ## Documentação Cypress
 
 acesse aqui para ver como criar testes automatizados E2E https://docs.cypress.io
