@@ -36,3 +36,7 @@ npx cypress open
 ## Contribuindo
 
 Envie suas modificações através de um Pull Request
+
+## Documentação Cypress
+
+acesse aqui para ver como criar testes automatizados E2E https://docs.cypress.io
