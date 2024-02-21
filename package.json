@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/sertao-dev/mapas-culturais-tests#readme",
   "dependencies": {
-    "cypress": "^13.6.4"
+    "cypress": "^13.6.4",
+    "ng-recaptcha": "^13.2.1"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
