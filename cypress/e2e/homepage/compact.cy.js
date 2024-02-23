@@ -30,4 +30,38 @@ describe("Homepage compactada", () => {
     cy.url().should("include", "/projetos/");
     backHomepageCompact();
   });
+
+  it("Navegação entre os cards da seção \"Em desteaque\"", () => {
+    cy.get(".carousel__next").click();
+    cy.wait(1000);
+    cy.get(".carousel__prev").click();
+  });
+
+  it("Acessa o navbar e o botão \"Acessar\" dos cards da seção \"Em desteaque\"", () => {
+    cy.get(".agents > a > span").click();
+    cy.wait(1000);
+    cy.get(".carousel__slide--active > .entity-card > .entity-card__footer > .entity-card__footer--action > .button").click();
+    cy.url().should("include", "/agente/54/#info");
+    cy.contains("Bianca Vieira");
+    backHomepageCompact();
+
+    cy.get(".spaces > a > span").click();
+    cy.wait(1000);
+    cy.get("[style=\"width: 35.7143%; order: 0;\"] > .entity-card > .entity-card__footer > .entity-card__footer--action > .button").click();
+    cy.url().should("include", "/espaco/25/#info");
+    cy.contains("Quatro pixels");
+    backHomepageCompact();
+
+    cy.get(".projects > a > span").click();
+    cy.wait(1000);
+    cy.get(".entity-card__footer--action > .button").click();
+    cy.url().should("include", "/projeto/12/#info");
+    cy.contains("12");
+    backHomepageCompact();
+
+    cy.get(".carousel__slide--active > .entity-card > .entity-card__footer > .entity-card__footer--action > .button").click();
+    cy.url().should("include", "/agente/1/#info");
+    cy.contains("Administrador");
+    backHomepageCompact();
+  });
 });
