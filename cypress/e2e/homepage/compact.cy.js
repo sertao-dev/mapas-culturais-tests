@@ -64,4 +64,23 @@ describe("Homepage compactada", () => {
     cy.contains("Administrador");
     backHomepageCompact();
   });
+
+  it("Acessa o botão \"Fazer Cadastro\" da quarta seção", () => {
+    cy.get(".home-register__content--button").click();
+    cy.url().should("include", "autenticacao/register/");
+    cy.contains("Novo cadastro");
+    backHomepageCompact();
+  });
+
+  it("Acessa o botões de zoom do mapa", () => {
+    cy.get(".leaflet-control-zoom-in").click();
+    cy.wait(2000);
+    cy.get(".leaflet-control-zoom-out").click();
+  });
+
+  it("Acessa o botão \"Conheça o repositório\" da seção \"Alô desenvolvedores\"", () => {
+    cy.get(".home-developers__content--link > .link").click();
+    cy.url().should("include", "https://github.com/mapasculturais");
+    cy.visit("/");
+  });
 });
