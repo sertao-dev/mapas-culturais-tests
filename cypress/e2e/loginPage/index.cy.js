@@ -1,4 +1,5 @@
 const { confirmRecaptcha } = require("../../commands/recaptcha");
+const { login } = require("../../commands/login");
 
 describe("Loginpage", () => {
   beforeEach(() => {
@@ -10,11 +11,7 @@ describe("Loginpage", () => {
   });
 
   it("Verifica se é possivel logar com email e senha", () => {
-    cy.get("input[id='email']").type("Adm@local");
-    cy.get("input[id='password']").type("mapas123");
-    confirmRecaptcha();
-    cy.wait(1000);
-    cy.get("button[type='submit']").click();
+    login();
   });
 
   it("Verifica se é possivel logar com cpf e senha", () => {
