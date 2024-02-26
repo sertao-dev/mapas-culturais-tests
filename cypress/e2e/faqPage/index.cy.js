@@ -8,19 +8,26 @@ describe("faqPage", () => {
 
   it("Garante que as opções do menu 'Dúvidas Frequentes' sejam clicáveis", () => {
     const url = [
-      "https://redesign.testes.map.as/perguntas-frequentes/cadastro/",
-      "https://redesign.testes.map.as/perguntas-frequentes/IntroducaoMapa/",
-      "https://redesign.testes.map.as/perguntas-frequentes/inscricao/"
+      "/perguntas-frequentes/cadastro/",
+      "/perguntas-frequentes/IntroducaoMapa/",
+      "/perguntas-frequentes/inscricao/"
     ];
 
     url.forEach(url => {
-      cy.get(`.faq__frequent > [href="${url}"]`).click();
-      backFaqPage();
-    });
+      const fullUrl = Cypress.config().baseUrl + url;
 
-    url.forEach(url => {
-      cy.get(`.faq__links > [href="${url}"]`).click();
+      cy.get(`.faq__frequent > [href="${fullUrl}"]`).click();
+      backFaqPage();
+      cy.wait(1000);
+      cy.get(`.faq__links > [href="${fullUrl}"]`).click();
       backFaqPage();
     });
+  });
+
+  it("Garante que a barra de pesquisa funciona e carrega os resultados", () => {
+    cy.get(".faq-search__input").should("be.enabled").type("cadastro");
+
+    cy.get(".faq__main--results").should("be.visible");
+    cy.get(".faq-accordion__items").should("be.visible");
   });
 });
