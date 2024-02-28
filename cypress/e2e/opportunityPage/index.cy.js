@@ -8,7 +8,6 @@ describe("Oportunidade", () => {
     cy.contains(".mc-header-menu__itens a", "Oportunidades").click();
     cy.url().should("include", "/oportunidades");
     cy.get(".search-filter__actions--form-input").type("teste");
-    // acessaria a URL desejada
-    cy.visit("https://redesign.testes.map.as/oportunidade/298/#info");
+    cy.visit("/oportunidade/298/#info");
   });
 });
