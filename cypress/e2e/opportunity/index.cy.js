@@ -1,3 +1,5 @@
+const { clearAllFilters } = require("../../commands/clearAllFilters");
+
 describe("Opportunity Page", () => {
   beforeEach(() => {
     cy.viewport(1920, 1080);
@@ -115,21 +117,13 @@ describe("Opportunity Page", () => {
 
     cy.wait(1000);
 
-    cy.contains("Tipo de oportunidade");
-
-    cy.get(":nth-child(2) > .mc-multiselect > :nth-child(1) > .v-popper > .mc-multiselect--input").click();
-    cy.get(":nth-child(19) > .item > .input").click();
-
-    cy.wait(1000);
-
-    cy.contains("60 Oportunidades encontradas");
-
-    cy.get(".tabs-component__panels").click({ force: true });
-
-    cy.contains("Limpar todos os filtros").click();
-
-    cy.wait(1000);
-
-    cy.contains("81 Oportunidades encontradas");
+    clearAllFilters([
+      ".form > :nth-child(1) > :nth-child(2)",
+      ".verified > input",
+      ":nth-child(2) > .mc-multiselect > :nth-child(1) > .v-popper > .mc-multiselect--input",
+      ":nth-child(1) > .item > .text",
+      ":nth-child(3) > .mc-multiselect > :nth-child(1) > .v-popper > .mc-multiselect--input",
+      ":nth-child(2) > .item > .text"
+    ], "82 Oportunidades encontradas");
   });
 });

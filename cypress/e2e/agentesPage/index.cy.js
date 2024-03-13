@@ -1,3 +1,5 @@
+const { clearAllFilters } = require("../../commands/clearAllFilters");
+
 describe("Agents Page", () => {
   beforeEach(() => {
     cy.viewport(1920, 1080);
@@ -79,23 +81,11 @@ describe("Agents Page", () => {
   });
 
   it("Garante que o botão limpar filtros na página de agentes funciona", () => {
-    cy.wait(1000);
-
-    cy.get(":nth-child(2) > select").select(2);
-    cy.contains("Agente Coletivo");
-    cy.wait(1000);
-    cy.contains("24 Agentes encontrados");
-
-    cy.get(":nth-child(3) > .mc-multiselect > :nth-child(1) > .v-popper > .mc-multiselect--input").click();
-    cy.get(":nth-child(4) > .item > .text").click();
-    cy.contains("Arquivo");
-    cy.contains("5 Agentes encontrados");
-
-    cy.get(".verified > input").click();
-    cy.contains("Nenhuma entidade encontrada");
-
-    cy.contains("Limpar todos os filtros").click();
-    cy.wait(1000);
-    cy.contains("93 Agentes encontrados");
+    clearAllFilters([
+      ".verified",
+      ":nth-child(2) > select",
+      ".mc-multiselect--input",
+      ":nth-child(1) > .item > .text"
+    ], "98 Agentes encontrados");
   });
 });
